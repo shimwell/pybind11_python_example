@@ -5,8 +5,13 @@
 #include <string>
 
 // I would like to include this header file from another package,
-// I normalling install the other package with mamba install -c conda
+// I normalling install the other package with mamba install -c conda-forge dagmc
+// The error this makes is below
 // in src/main.cpp:10:10: fatal error: DagMC.hpp: No such file or directory
+// to reporduce
+// pip install .
+// python
+// import dagmc_volume_finder
 #include "DagMC.hpp"
 
 #define STRINGIFY(x) #x
