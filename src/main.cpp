@@ -13,6 +13,10 @@
 // python
 // import dagmc_volume_finder
 #include "DagMC.hpp"
+// putting in the full path to the file doesn't help much as these hpp files need other hpp files
+// #include "/home/jshimwell/DAGMC/DAGMC/src/dagmc/DagMC.hpp"
+// for example this DagMCVersion file is needed by DagMC
+// #include "/home/jshimwell/DAGMC/DAGMC/src/dagmc/DagMCVersion.hpp.in"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
