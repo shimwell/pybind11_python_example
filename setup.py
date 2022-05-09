@@ -4,6 +4,7 @@ from pybind11 import get_cmake_dir
 # Available at setup time due to pyproject.toml
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 from setuptools import setup
+import os
 
 __version__ = "0.0.1"
 
@@ -16,13 +17,31 @@ __version__ = "0.0.1"
 #   Sort input source files if you glob sources to ensure bit-for-bit
 #   reproducible builds (https://github.com/pybind/dagmc_volume_finder/pull/53)
 
+dagmc_path = os.path.abspath(".")
+print('dagmc_path', dagmc_path)
+
+conda_path = os.getenv('CONDA_PREFIX')
+
 ext_modules = [
     Pybind11Extension("dagmc_volume_finder",
         ["src/main.cpp"],
-        # Example: passing in the version to the compiled code
+        # ext_modules
+        include_dirs=[f'{conda_path}/include/'],
         define_macros = [('VERSION_INFO', __version__)],
         ),
 ]
+
+# ext_modules = [
+#     Pybind11Extension("dagmc_volume_finder",
+#         ["src/main.cpp"],
+#         # ext_modules
+#         include_dirs=[f'{conda_path}/include/'],
+#         # include_dirs=['/home/jshimwell/miniconda3/envs/dagmc_volume_finder_dev/include/'],  # includes a local folder
+#         # include_dirs=['/home/jshimwell/miniconda3/envs/dagmc_volume_finder_dev/include/'],  # includes a local folder
+#         # Example: passing in the version to the compiled code
+#         define_macros = [('VERSION_INFO', __version__)],
+#         ),
+# ]
 
 setup(
     name="dagmc_volume_finder",
