@@ -12,6 +12,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - dagmc >=3.2.1
 
   host:
     - python
