@@ -21,12 +21,43 @@ dagmc_path = os.path.abspath(".")
 print('dagmc_path', dagmc_path)
 
 conda_path = os.getenv('CONDA_PREFIX')
+SRC_DIR = os.getenv('SRC_DIR')
+
+# export BUILD_PREFIX=/tmp/conda-build/dagmc-volumer-finder/dagmc_volume_finder_1652696316582/_build_env
+# export SRC_DIR=/tmp/conda-build/dagmc-volumer-finder/dagmc_volume_finder_1652696316582/work
+
+print('dagmc_path', dagmc_path)
 
 ext_modules = [
     Pybind11Extension("dagmc_volume_finder",
-        ["src/main.cpp"],
+        ["src/main.cpp", 'include/dagmc/src/dagmc/'],
         # ext_modules
-        include_dirs=[f'{conda_path}/include/'],
+        include_dirs=[
+            f'{conda_path}/include/',
+            f'{conda_path}/include/dagmc/',
+            f'{conda_path}/include/dagmc/src/',
+            f'{conda_path}/include/dagmc/src/dagmc/',
+            f'{conda_path}/vendor/',
+            f'{conda_path}/vendor/dagmc/',
+            f'{conda_path}/vendor/dagmc/src/',
+            f'{conda_path}/vendor/dagmc/src/dagmc/',
+            f'{SRC_DIR}/include/',
+            f'{SRC_DIR}/include/dagmc/',
+            f'{SRC_DIR}/include/dagmc/src/',
+            f'{SRC_DIR}/include/dagmc/src/dagmc/',
+            f'{SRC_DIR}/vendor/',
+            f'{SRC_DIR}/vendor/dagmc/',
+            f'{SRC_DIR}/vendor/dagmc/src/',
+            f'{SRC_DIR}/vendor/dagmc/src/dagmc/',
+            'include/',
+            'include/dagmc/',
+            'include/dagmc/src/',
+            'include/dagmc/src/dagmc/',
+            'vendor/',
+            'vendor/dagmc/',
+            'vendor/dagmc/src/',
+            'vendor/dagmc/src/dagmc/',
+        ],
         define_macros = [('VERSION_INFO', __version__)],
         ),
 ]

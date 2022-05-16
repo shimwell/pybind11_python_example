@@ -34,11 +34,14 @@ jobs:
       - name: Prepare
         run: conda install conda-build conda-verify
 
+      - name: install mamba
+        run: conda install -c conda-forge mamba
+
       - name: Build
-        run: conda build -c conda-forge conda.recipe
+        run: mamba build -c conda-forge conda.recipe
 
       - name: Install
-        run: conda install -c ${CONDA_PREFIX}/conda-bld/ dagmc_volume_finder
+        run: mamba install -c ${CONDA_PREFIX}/conda-bld/ dagmc_volume_finder
 
       - name: Test
         run: python tests/test.py

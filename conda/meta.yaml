@@ -1,19 +1,18 @@
 package:
   name: dagmc_volume_finder
-  version: 0.0.1
+  version: 0.0.3
 
 source:
   - git_url: https://github.com/shimwell/pybind11_python_example.git
-    git_rev: 0.0.1
+    git_rev: 0.0.3
   - url: https://github.com/svalinn/DAGMC/archive/refs/tags/v3.2.1.tar.gz
     sha256: 4d006b2f59f237d6ccb593b2b88b84977532ab2178db4b1b72f12b26416740c6
-    # sha256: 2cd2683fbcb4ae30eed2393741e320c7b1403e9a80d1af6306c2042a06775801
-    folder: dagmc
+    folder: vendor/dagmc
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
-  # script: python -m pip install . -vvv
+  # script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install . -vvv
 
 requirements:
   build:

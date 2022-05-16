@@ -14,7 +14,7 @@
 // import dagmc_volume_finder
 // to solve this error I have included conda_path = os.getenv('CONDA_PREFIX')
 // in the include_dirs in the setup.py file
-#include "../vendor/dagmc/src/dagmc/DagMC.hpp"
+#include "dagmc/DagMC.hpp"
 // #include "dagmc/DagMC.hpp"
 // could use different brackets, like <DagMC.hpp>
 // could import from one path bellow
