@@ -1,6 +1,6 @@
 package:
   name: dagmc_volume_finder
-  version: 0.0.3
+  version: 0.0.6
 
 source:
   - git_url: https://github.com/shimwell/pybind11_python_example.git
