@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
+        platform: [ubuntu-latest, macos-latest]
         python-version: ["3.6", "3.8"]
 
     runs-on: ${{ matrix.platform }}
@@ -38,7 +38,7 @@ jobs:
         run: conda install -c conda-forge mamba
 
       - name: Build
-        run: mamba build -c conda-forge conda.recipe
+        run: mamba build conda
 
       - name: Install
         run: mamba install -c ${CONDA_PREFIX}/conda-bld/ dagmc_volume_finder
