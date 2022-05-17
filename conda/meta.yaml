@@ -6,34 +6,51 @@ source:
   # - git_url: https://github.com/shimwell/pybind11_python_example.git
   #   git_rev: 0.0.7
   - path: ..
+  
+    # git_url: https://github.com/svalinn/DAGMC.git
+    # git_rev: v{{ version }}
   # - url: https://github.com/svalinn/DAGMC/archive/refs/tags/v3.2.1.tar.gz
   #   sha256: 4d006b2f59f237d6ccb593b2b88b84977532ab2178db4b1b72f12b26416740c6
   #   folder: vendor/dagmc
-  - url: https://github.com/shimwell/DAGMC/archive/refs/tags/v3.2.tar.gz
-    sha256: fbfc805d731641cfd3681750f0fcf125f61686e400877dbae420faa868e73f95
-    folder: vendor/dagmc
-  - url: https://bitbucket.org/fathomteam/moab/get/5.3.1.tar.bz2
-    sha256: 915e946ab2afb80434f73213563a9adb5e0357abc99fe975003072b50a66a6ff
-    folder: vendor/moab
+  # - url: https://github.com/shimwell/DAGMC/archive/refs/tags/v3.2.tar.gz
+  #   sha256: fbfc805d731641cfd3681750f0fcf125f61686e400877dbae420faa868e73f95
+  #   folder: vendor/dagmc
+  # - url: https://bitbucket.org/fathomteam/moab/get/5.3.1.tar.bz2
+  #   sha256: 915e946ab2afb80434f73213563a9adb5e0357abc99fe975003072b50a66a6ff
+  #   folder: vendor/moab
 
 build:
   number: 0
   # script: python setup.py install --single-version-externally-managed --record=record.txt
-  script: python -m pip install . -vvv
+  # script: python -m pip install . -vvv
 
 requirements:
   build:
-    # - dagmc 3.2.1 * nompi_*  # [dagmc == 'dagmc']
+    - cmake
+    - make
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - openssh
+    - libtool
 
   host:
-    # - dagmc 3.2.1 * nompi_*  # [dagmc == 'dagmc']
     - python
     - pip
     - pybind11 >=2.6.0
+    - eigen
+    - hdf5
 
   run:
+    - hdf5
     - python
+    - eigen
+    - zlib
+    - libblas
+    - liblapack
+    - libnetcdf
+    - metis
+    - numpy
+    - setuptools
 
 
 test:
