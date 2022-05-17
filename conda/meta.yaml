@@ -39,10 +39,6 @@ requirements:
     - pybind11 >=2.6.0
     - eigen
     - hdf5
-
-  run:
-    - hdf5
-    - python
     - eigen
     - zlib
     - libblas
@@ -52,6 +48,16 @@ requirements:
     - numpy
     - setuptools
 
+  run:
+    - hdf5
+    - python
+    - libblas
+    - liblapack
+    - libnetcdf
+    - metis
+    - numpy
+    - openssh
+    - setuptools
 
 test:
   imports:
