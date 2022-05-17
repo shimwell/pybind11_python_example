@@ -6,7 +6,7 @@ from pybind11.setup_helpers import Pybind11Extension, build_ext
 from setuptools import setup
 import os
 
-__version__ = "0.0.1"
+__version__ = "0.0.7"
 
 # The main interface is through Pybind11Extension.
 # * You can add cxx_std=11/14/17, and then build_ext can be removed.
@@ -29,36 +29,21 @@ SRC_DIR = os.getenv('SRC_DIR')
 print('dagmc_path', dagmc_path)
 
 ext_modules = [
-    Pybind11Extension("dagmc_volume_finder",
-        ["src/main.cpp", 'include/dagmc/src/dagmc/'],
+    Pybind11Extension(
+        "dagmc_volume_finder",
+        ["src/main.cpp"],
         # ext_modules
         include_dirs=[
-            f'{conda_path}/include/',
-            f'{conda_path}/include/dagmc/',
-            f'{conda_path}/include/dagmc/src/',
-            f'{conda_path}/include/dagmc/src/dagmc/',
-            f'{conda_path}/vendor/',
-            f'{conda_path}/vendor/dagmc/',
-            f'{conda_path}/vendor/dagmc/src/',
-            f'{conda_path}/vendor/dagmc/src/dagmc/',
-            f'{SRC_DIR}/include/',
-            f'{SRC_DIR}/include/dagmc/',
-            f'{SRC_DIR}/include/dagmc/src/',
-            f'{SRC_DIR}/include/dagmc/src/dagmc/',
-            f'{SRC_DIR}/vendor/',
-            f'{SRC_DIR}/vendor/dagmc/',
-            f'{SRC_DIR}/vendor/dagmc/src/',
-            f'{SRC_DIR}/vendor/dagmc/src/dagmc/',
-            'include/',
-            'include/dagmc/',
-            'include/dagmc/src/',
-            'include/dagmc/src/dagmc/',
+            # 'include/',
+            # 'include/dagmc/',
+            # 'include/dagmc/src/',
+            # 'include/dagmc/src/dagmc/',
             'vendor/',
             'vendor/dagmc/',
             'vendor/dagmc/src/',
             'vendor/dagmc/src/dagmc/',
         ],
-        define_macros = [('VERSION_INFO', __version__)],
+        define_macros=[('VERSION_INFO', __version__)],
         ),
 ]
 
