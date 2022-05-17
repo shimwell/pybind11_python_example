@@ -19,9 +19,37 @@ __version__ = "0.0.7"
 
 dagmc_path = os.path.abspath(".")
 print('dagmc_path', dagmc_path)
+print('dagmc_path', dagmc_path)
+print('dagmc_path', dagmc_path)
+print('dagmc_path', dagmc_path)
+print('dagmc_path', dagmc_path)
+print('dagmc_path', dagmc_path)
+print()
+print()
+print()
+print()
 
 conda_path = os.getenv('CONDA_PREFIX')
 SRC_DIR = os.getenv('SRC_DIR')
+print('SRC_DIR', SRC_DIR)
+print('SRC_DIR', SRC_DIR)
+print('SRC_DIR', SRC_DIR)
+print('SRC_DIR', SRC_DIR)
+print('SRC_DIR', SRC_DIR)
+print('SRC_DIR', SRC_DIR)
+print()
+print()
+print()
+print()
+
+# # attempting to write the missing file to the folder
+# from pathlib import Path
+# with open(Path(SRC_DIR)/ "vendor/dagmc/src/dagmc/DagMCVersion.hpp", 'w') as opened_file:
+#     opened_file.write('define DAGMC_VERSION 3.2\n')
+#     opened_file.write('define DAGMC_VERSION_STRING "3.2"\n')
+#     opened_file.write('define DAGMC_GIT_SHA "3fd335ea3f4360aa6043b30371795ade6ec9919c"\n')
+
+
 
 # export BUILD_PREFIX=/tmp/conda-build/dagmc-volumer-finder/dagmc_volume_finder_1652696316582/_build_env
 # export SRC_DIR=/tmp/conda-build/dagmc-volumer-finder/dagmc_volume_finder_1652696316582/work
@@ -42,6 +70,9 @@ ext_modules = [
             'vendor/dagmc/',
             'vendor/dagmc/src/',
             'vendor/dagmc/src/dagmc/',
+            'vendor/moab/',
+            'vendor/moab/src/',
+            'vendor/moab/src/moab/',
         ],
         define_macros=[('VERSION_INFO', __version__)],
         ),
