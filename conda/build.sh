@@ -6,7 +6,7 @@ git clone  --single-branch --branch 5.3.1 --depth 1 https://bitbucket.org/fathom
 mkdir build
 cd build
 cmake ../moab -DENABLE_HDF5=ON \
-                -DENABLE_NETCDF=ON \
+                -DENABLE_NETCDF=OFF \
                 -DENABLE_FORTRAN=OFF \
                 -DENABLE_BLASLAPACK=OFF \
                 -DBUILD_SHARED_LIBS=OFF \
