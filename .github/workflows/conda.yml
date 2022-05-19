@@ -38,7 +38,7 @@ jobs:
         run: conda install -c conda-forge mamba
 
       - name: Build
-        run: mamba build --croot /tmp/conda-build/dagmc-volumer-finder conda
+        run: mamba build -c conda-forge --croot /tmp/conda-build/dagmc-volumer-finder conda
 
       - name: Install
         run: mamba install -c ${CONDA_PREFIX}/conda-bld/ dagmc_volume_finder
