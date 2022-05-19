@@ -27,6 +27,9 @@ python setup.py install
 # pymoab so this has been commented out for now
 # rm -rf /MOAB/moab /MOAB/build
 
+cd ..
+cd ..
+cd ..
 
 mkdir DAGMC
 cd DAGMC
@@ -42,11 +45,7 @@ cmake ../DAGMC -DBUILD_TALLY=ON \
                 -DDOUBLE_DOWN_DIR=/double-down
 make -j install
 
-cd ..
-cd ..
 
-
-cd ..
 cd ..
 cd ..
 
