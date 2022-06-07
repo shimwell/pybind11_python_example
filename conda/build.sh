@@ -11,15 +11,15 @@ cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_BLASLAPACK=OFF \
                 -DBUILD_SHARED_LIBS=OFF \
                 -DCMAKE_INSTALL_PREFIX=/MOAB
-make -j
-make -j install
+make
+make install
 cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_PYMOAB=ON \
                 -DENABLE_FORTRAN=OFF \
                 -DBUILD_SHARED_LIBS=ON \
                 -DENABLE_BLASLAPACK=OFF \
                 -DCMAKE_INSTALL_PREFIX=/MOAB
-make -j install
+make install
 cd pymoab
 bash install.sh
 python setup.py install
@@ -43,7 +43,7 @@ cmake ../DAGMC -DBUILD_TALLY=ON \
                 -DBUILD_STATIC_LIBS=OFF \
                 -DCMAKE_INSTALL_PREFIX=/DAGMC/ \
                 -DDOUBLE_DOWN_DIR=/double-down
-make -j install
+make install
 
 
 cd ..
