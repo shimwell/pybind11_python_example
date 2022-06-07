@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-
+pwd
+pwd
+pwd
+pwd
+pwd
+pwd
 mkdir MOAB
 cd MOAB
 git clone  --single-branch --branch 5.3.1 --depth 1 https://bitbucket.org/fathomteam/moab.git
@@ -9,16 +14,16 @@ cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_NETCDF=OFF \
                 -DENABLE_FORTRAN=OFF \
                 -DENABLE_BLASLAPACK=OFF \
-                -DBUILD_SHARED_LIBS=OFF \
-                -DCMAKE_INSTALL_PREFIX=/MOAB
+                -DBUILD_SHARED_LIBS=OFF 
+                # -DCMAKE_INSTALL_PREFIX=/MOAB
 make
 make install
 cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_PYMOAB=ON \
                 -DENABLE_FORTRAN=OFF \
                 -DBUILD_SHARED_LIBS=ON \
-                -DENABLE_BLASLAPACK=OFF \
-                -DCMAKE_INSTALL_PREFIX=/MOAB
+                -DENABLE_BLASLAPACK=OFF 
+                # -DCMAKE_INSTALL_PREFIX=/MOAB
 make install
 cd pymoab
 bash install.sh
@@ -37,7 +42,7 @@ git clone --single-branch --branch v3.2.1 --depth 1 https://github.com/svalinn/D
 mkdir build
 cd build
 cmake ../DAGMC -DBUILD_TALLY=ON \
-                -DMOAB_DIR=/MOAB \
+                # -DMOAB_DIR=/MOAB \
                 -DDOUBLE_DOWN=${build_double_down} \
                 -DBUILD_STATIC_EXE=OFF \
                 -DBUILD_STATIC_LIBS=OFF \
