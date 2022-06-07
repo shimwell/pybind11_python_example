@@ -1,30 +1,25 @@
 #!/usr/bin/env bash
-pwd
-pwd
-pwd
-pwd
-pwd
-pwd
+
 mkdir MOAB
 cd MOAB
 git clone  --single-branch --branch 5.3.1 --depth 1 https://bitbucket.org/fathomteam/moab.git
 mkdir build
 cd build
-cmake ../moab -DENABLE_HDF5=ON \
+sudo cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_NETCDF=OFF \
                 -DENABLE_FORTRAN=OFF \
                 -DENABLE_BLASLAPACK=OFF \
-                -DBUILD_SHARED_LIBS=OFF 
-                # -DCMAKE_INSTALL_PREFIX=/MOAB
-make
-make install
-cmake ../moab -DENABLE_HDF5=ON \
+                -DBUILD_SHARED_LIBS=OFF \
+                -DCMAKE_INSTALL_PREFIX=/MOAB
+sudo make -j
+sudo make -j install
+sudo cmake ../moab -DENABLE_HDF5=ON \
                 -DENABLE_PYMOAB=ON \
                 -DENABLE_FORTRAN=OFF \
                 -DBUILD_SHARED_LIBS=ON \
-                -DENABLE_BLASLAPACK=OFF 
-                # -DCMAKE_INSTALL_PREFIX=/MOAB
-make install
+                -DENABLE_BLASLAPACK=OFF \
+                -DCMAKE_INSTALL_PREFIX=/MOAB
+sudo make -j install
 cd pymoab
 bash install.sh
 python setup.py install
@@ -41,14 +36,12 @@ cd DAGMC
 git clone --single-branch --branch v3.2.1 --depth 1 https://github.com/svalinn/DAGMC.git
 mkdir build
 cd build
-cmake ../DAGMC -DBUILD_TALLY=ON \
-                # -DMOAB_DIR=/MOAB \
-                -DDOUBLE_DOWN=${build_double_down} \
+sudo cmake ../DAGMC -DBUILD_TALLY=ON \
+                -DMOAB_DIR=/MOAB \
                 -DBUILD_STATIC_EXE=OFF \
                 -DBUILD_STATIC_LIBS=OFF \
-                -DCMAKE_INSTALL_PREFIX=/DAGMC/ \
-                -DDOUBLE_DOWN_DIR=/double-down
-make install
+                -DCMAKE_INSTALL_PREFIX=/DAGMC/
+sudo make -j install
 
 
 cd ..
