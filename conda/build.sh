@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
+set -x
+
+sudo apt-get --yes install libeigen3-dev
 
 mkdir MOAB
 cd MOAB
