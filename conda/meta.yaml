@@ -32,6 +32,7 @@ requirements:
     - {{ compiler('cxx') }}
     - openssh
     - libtool
+    - eigen
 
   host:
     - python
@@ -39,7 +40,6 @@ requirements:
     - pybind11 >=2.6.0
     - eigen
     - hdf5
-    - eigen
     - zlib
     - libblas
     - liblapack
@@ -49,6 +49,7 @@ requirements:
     - setuptools
 
   run:
+    - eigen
     - hdf5
     - python
     - libblas
