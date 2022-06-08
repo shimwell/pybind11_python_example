@@ -10,7 +10,7 @@ cd MOAB
 git clone  --single-branch --branch 5.3.1 --depth 1 https://bitbucket.org/fathomteam/moab.git
 mkdir bld
 cd bld
-cmake .. -DCMAKE_INSTALL_PREFIX=${PREFIX}/MOAB \
+cmake ../moab -DCMAKE_INSTALL_PREFIX=${PREFIX}/MOAB \
          -DENABLE_HDF5=ON \
          -DHDF5_ROOT=${PREFIX} \
          -DENABLE_METIS=ON \
