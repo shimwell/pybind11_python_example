@@ -4,7 +4,6 @@ set -x
 
 sudo apt-get --yes install libeigen3-dev
 sudo apt-get --yes install libhdf5-serial-dev
-pip install numpy
 
 mkdir MOAB
 cd MOAB

@@ -33,6 +33,7 @@ requirements:
     - openssh
     - libtool
     - eigen
+    - numpy
 
   host:
     - python
